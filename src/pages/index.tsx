@@ -10,6 +10,13 @@ interface IndexPageProps {
         tagline: string;
       }
     }
+    allContentfulMovie: {
+      edges: {
+        node: {
+          title: string;
+        }
+      }
+    }    
   }
 }
 
@@ -21,22 +28,36 @@ export const indexPageQuery = graphql`
         tagline
       }
     }
+    allContentfulMovie {
+      edges {
+        node {
+          title
+        }
+      }
+    }
   }
 `
 
 export default class IndexPage extends React.Component<IndexPageProps, {}> {
-  // const siteMetadata = this.props.data.site.siteMetadata
-
+  
   public render() {
+  
     const {
       name,
       tagline
     } = this.props.data.site.siteMetadata
-
+  
+    const movies = this.props.data.allContentfulMovie.edges.map((edge) => edge.node)
+  
     return (
       <div className="container">
         <h1>{name}</h1>
         <p>{tagline}</p>
+        <ul>
+          {movies.map((movie, index) => {
+            return <li key={index}>{movie.title}</li>
+          })}
+        </ul>
       </div>
     )
   }
