@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-example-typescript-sass-contentful",
+  "description": "Gatsby Example Typescript Sass Contentful",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.0-rc.10",
+    "gatsby-plugin-sass": "^2.0.0-rc.2",
+    "gatsby-plugin-typescript": "^2.0.0-rc.3",
+    "node-sass": "^4.9.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "typescript": "^3.0.3"
+  }
+}
