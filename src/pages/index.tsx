@@ -14,9 +14,19 @@ interface IndexPageProps {
       edges: {
         node: {
           title: string;
+          description: {
+            description: string;
+          }
+          posterImage: {
+            resolutions: {
+              src: string;
+            }
+          }
+          slug: string;
+          releaseDate: string;
         }
       }
-    }    
+    }   
   }
 }
 
@@ -28,10 +38,20 @@ export const indexPageQuery = graphql`
         tagline
       }
     }
-    allContentfulMovie {
+    allContentfulMovie(sort: { fields: [releaseDate] }) {
       edges {
         node {
           title
+          description {
+            description
+          }
+          posterImage {
+            resolutions {
+              src
+            }
+          }
+          slug
+          releaseDate(formatString: "MMMM DD, YYYY")
         }
       }
     }
@@ -40,6 +60,17 @@ export const indexPageQuery = graphql`
 
 export default class IndexPage extends React.Component<IndexPageProps, {}> {
   
+  renderMovieTile = (movie, index) => {
+     return (
+      <div key={index} className="movie-tile">
+        <img src={movie.posterImage.resolutions.src} className="movie-tile-img"  />
+        <h2>{movie.title}</h2>
+        <span>{movie.releaseDate}</span>
+        <p>{movie.description.description}</p>
+      </div>
+    )
+  }
+
   public render() {
   
     const {
@@ -53,11 +84,9 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
       <div className="container">
         <h1>{name}</h1>
         <p>{tagline}</p>
-        <ul>
-          {movies.map((movie, index) => {
-            return <li key={index}>{movie.title}</li>
-          })}
-        </ul>
+        <div className="movie-tile-wrapper">
+          {movies.map((movie, index) => this.renderMovieTile(movie, index))}
+        </div>
       </div>
     )
   }
