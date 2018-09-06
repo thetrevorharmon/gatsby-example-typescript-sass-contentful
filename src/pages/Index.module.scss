@@ -1,0 +1,46 @@
+.Container {
+  max-width: 960px;
+  margin: 3rem auto 0;
+  font-family: sans-serif;
+}
+  
+.Container h1 {
+  color: #333;
+}
+  
+.Container p {
+  color: #aaa;
+}
+  
+.MovieTileWrapper {
+  margin: 0 -1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+  
+.MovieTile {
+  margin: 0 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
+  
+  h2 {
+    color: #333;
+    letter-spacing: -1px;
+  }
+  
+  span {
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  p {
+    color: #222;
+    line-height: 1.3;
+  }
+}
+  
+.MovieImg {
+  max-width: 100%;
+}
+
