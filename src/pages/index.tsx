@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import * as styles from './Index.module.scss'
-
+  
 interface IndexPageProps {
   data: {
     site: {
@@ -29,7 +29,7 @@ interface IndexPageProps {
     }   
   }
 }
-
+  
 export const indexPageQuery = graphql`
   query IndexPageQuery {
     site {
@@ -57,7 +57,7 @@ export const indexPageQuery = graphql`
     }
   }
 `
-
+  
 export default class IndexPage extends React.Component<IndexPageProps, {}> {
   
   renderMovieTile = (movie, index) => {
@@ -70,7 +70,7 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
       </div>
     )
   }
-
+  
   public render() {
   
     const {
