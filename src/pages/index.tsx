@@ -8,6 +8,7 @@ interface IndexPageProps {
       siteMetadata: {
         name: string;
         tagline: string;
+        githubLink: string;
       }
     }
     allContentfulMovie: {
@@ -36,6 +37,7 @@ export const indexPageQuery = graphql`
       siteMetadata {
         name
         tagline
+        githubLink
       }
     }
     allContentfulMovie(sort: { fields: [releaseDate] }) {
@@ -67,7 +69,7 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
         <h2>{movie.title}</h2>
         <span>{movie.releaseDate}</span>
         <p>{movie.description.description}</p>
-      </div>
+      </div>  
     )
   }
   
@@ -75,7 +77,8 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
   
     const {
       name,
-      tagline
+      tagline,
+      githubLink
     } = this.props.data.site.siteMetadata
   
     const movies = this.props.data.allContentfulMovie.edges.map((edge) => edge.node)
@@ -87,6 +90,7 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
         <div className={styles.MovieTileWrapper}>
           {movies.map((movie, index) => this.renderMovieTile(movie, index))}
         </div>
+        <a href={githubLink} className={styles.Button}>See the code on Github &rarr;</a>
       </div>
     )
   }

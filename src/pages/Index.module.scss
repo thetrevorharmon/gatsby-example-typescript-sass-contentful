@@ -1,6 +1,6 @@
 .Container {
   max-width: 60rem;
-  margin: 3rem auto 0;
+  margin: 3rem auto 3rem;
   font-family: sans-serif;
   
   h1 {
@@ -43,4 +43,15 @@
 .MovieImg {
   max-width: 100%;
 }
-
+  
+.Button {
+  display: inline-block;
+  margin-top: 1rem;
+  
+  color: #EA6E2E;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
