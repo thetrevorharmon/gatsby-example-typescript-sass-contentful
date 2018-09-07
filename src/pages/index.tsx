@@ -90,7 +90,7 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
         <div className={styles.MovieTileWrapper}>
           {movies.map((movie, index) => this.renderMovieTile(movie, index))}
         </div>
-        <a href={githubLink} className={styles.Button}>See the code on Github &rarr;</a>
+        <a href={githubLink} className={styles.Link}>See the code on Github &rarr;</a>
       </div>
     )
   }
